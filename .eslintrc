@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "standard",
+    "standard-react"
+  ],
+  "globals": {
+    "fetch": true
+  },
+  "rules": {
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "array-bracket-spacing": [
+      "error",
+      "always"
+    ]
+  }
+}

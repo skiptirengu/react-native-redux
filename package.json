@@ -1,0 +1,37 @@
+{
+  "name": "newm-react-native-demo",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@types/react": "^16.4.11",
+    "babel-preset-react-native": "^5.0.2",
+    "eslint": "^5.3.0",
+    "eslint-config-standard": "^12.0.0-alpha.0",
+    "eslint-config-standard-react": "^6.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^3.1.0",
+    "jest": "^23.5.0",
+    "jest-react-native": "^18.0.0",
+    "react-test-renderer": "16.3.1"
+  },
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-native": "^0.56.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
+  }
+}
