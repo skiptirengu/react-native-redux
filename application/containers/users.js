@@ -7,15 +7,19 @@ import PropTypes from 'prop-types'
 class Users extends React.Component {
   componentDidMount () {
     this.props.getUsers()
+
+    setTimeout(() => this.props.getUsers(), 5000)
   }
 
   render () {
     return (
       <View>
-        <Text>
-          {this.props.loadingData && 'Loading...'}
-          {!this.props.loadingData && JSON.stringify(this.props.data)}
-        </Text>
+        <Text>Page: {this.props.info.page}</Text>
+        <Text>{this.props.loadingData && 'Loading Data...'}</Text>
+        <Text>{this.props.loadingMore && 'Loading More...'}</Text>
+        <Text>{this.props.data.length > 0 && 'Data Loaded.'}</Text>
+        <Text>{this.props.loadError}</Text>
+        <Text>{this.props.loadMoreError}</Text>
       </View>
     )
   }
@@ -27,7 +31,8 @@ Users.propTypes = {
   info: PropTypes.object,
   loadError: PropTypes.string,
   loadMoreError: PropTypes.string,
-  loadingData: PropTypes.bool
+  loadingData: PropTypes.bool,
+  loadingMore: PropTypes.bool
 }
 
 export default connect((state) => ({ ...state.users }), { getUsers })(Users)

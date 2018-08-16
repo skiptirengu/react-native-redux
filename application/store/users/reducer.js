@@ -1,6 +1,11 @@
+import * as types from './types'
+
 const initialState = {
   data: [],
-  info: {},
+  info: {
+    page: 0,
+    seed: null
+  },
   loadError: null,
   loadMoreError: null,
   loadingData: false,
@@ -9,7 +14,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_USERS_OK':
+    case types.FETCH_USERS_OK:
       return {
         ...state,
         data: action.response.results,
@@ -17,31 +22,30 @@ export default (state = initialState, action) => {
         loadError: null,
         loadingData: false
       }
-    case 'FETCH_USERS_ERR':
+    case types.FETCH_USERS_ERR:
       return {
         ...state,
         loadError: action.error.message,
         loadingData: false
       }
-    case 'FETCH_USERS_NEXT_OK':
+    case types.FETCH_USERS_NEXT_OK:
       return {
         ...state,
-        data: [
-          ...state.data,
-          ...action.response.results
-        ]
+        data: [ ...state.data, ...action.response.results ],
+        info: action.response.info,
+        loadingMore: false
       }
-    case 'FETCH_USERS_NEXT_ERR':
+    case types.FETCH_USERS_NEXT_ERR:
       return {
         ...state,
         loadMoreError: action.error.message
       }
-    case 'FETCHING_USERS':
+    case types.FETCHING_USERS:
       return {
         ...state,
         loadingData: true
       }
-    case 'FETCHING_USERS_NEXT':
+    case types.FETCHING_USERS_NEXT:
       return {
         ...state,
         loadingMore: true

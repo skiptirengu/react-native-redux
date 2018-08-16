@@ -1,0 +1,6 @@
+export const FETCH_USERS_OK = Symbol('FETCH_USERS_OK')
+export const FETCHING_USERS = Symbol('FETCHING_USERS')
+export const FETCH_USERS_ERR = Symbol('FETCH_USERS_ERR')
+export const FETCH_USERS_NEXT_OK = Symbol('FETCH_USERS_NEXT_OK')
+export const FETCH_USERS_NEXT_ERR = Symbol('FETCH_USERS_NEXT_ERR')
+export const FETCHING_USERS_NEXT = Symbol('FETCHING_USERS_NEXT')
