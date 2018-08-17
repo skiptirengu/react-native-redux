@@ -38,7 +38,7 @@ class Users extends React.Component {
         <Header>
           <Left>
             <Button transparent>
-              <Icon name='home' />
+              <Icon name='menu' />
             </Button>
           </Left>
           <Body>
