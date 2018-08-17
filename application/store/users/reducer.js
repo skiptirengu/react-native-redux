@@ -2,10 +2,7 @@ import * as types from './types'
 
 const initialState = {
   data: [],
-  info: {
-    page: 0,
-    seed: null
-  },
+  info: { page: 0, seed: null },
   loadError: null,
   loadMoreError: null,
   loadingData: false,
@@ -49,6 +46,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loadingMore: true
+      }
+    case types.REFRESH_USERS:
+      return {
+        ...state,
+        info: { ...state.info, page: 0 }
       }
     default:
       return state

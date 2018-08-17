@@ -11,7 +11,7 @@ const fetchUsersErr = (error, type) => ({
   error
 })
 
-const fetchingUsers = (type) => ({
+const dispatchAction = (type) => ({
   type
 })
 
@@ -31,7 +31,7 @@ const isLoadingData = (state) => {
  */
 async function fetchFirstPage (dispatch, state) {
   try {
-    dispatch(fetchingUsers(types.FETCHING_USERS))
+    dispatch(dispatchAction(types.FETCHING_USERS))
     dispatch(fetchUsersOK(await api.users.fetchUsers(1), types.FETCH_USERS_OK))
   } catch (error) {
     dispatch(fetchUsersErr(error, types.FETCH_USERS_ERR))
@@ -48,11 +48,16 @@ async function fetchNextPage (dispatch, state) {
   const { page, seed } = state.info
 
   try {
-    dispatch(fetchingUsers(types.FETCHING_USERS_NEXT))
+    dispatch(dispatchAction(types.FETCHING_USERS_NEXT))
     dispatch(fetchUsersOK(await api.users.fetchUsers(page + 1, seed), types.FETCH_USERS_NEXT_OK))
   } catch (error) {
     dispatch(fetchUsersErr(error, types.FETCH_USERS_NEXT_ERR))
   }
+}
+
+export const refreshUsers = () => (dispatch) => {
+  dispatch(dispatchAction(types.REFRESH_USERS))
+  dispatch(getUsers())
 }
 
 export const getUsers = () => async (dispatch, getState) => {
