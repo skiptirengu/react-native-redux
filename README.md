@@ -1,6 +1,6 @@
 # React native redux boilerplate
 
-A simple react native boilerplate with redux using the [randomuser.me](https://randomuser.me/) api.
+A simple react native boilerplate/demo using the [randomuser.me](https://randomuser.me/) api.
 
 ### Features
 + Redux
